@@ -1,0 +1,5 @@
+<ngx-codemirror #editor
+  [options]="codeMirrorOptions"
+  [(ngModel)]="obj"
+  (ngModelChange)="onCodeChanged($event)">
+</ngx-codemirror>
