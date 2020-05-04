@@ -14,8 +14,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule  } from '@angular/material/input';
 
-import { CodemirrorModule } from '@ctrl/ngx-codemirror';
-
+import { CodeEditorModule } from '@ngstack/code-editor';
 
 
 import { AppComponent } from './app.component';
@@ -49,7 +48,7 @@ import { FormsModule } from '@angular/forms';
       MatFormFieldModule,
       FormsModule,
       MatInputModule,
-      CodemirrorModule
+      CodeEditorModule.forRoot()
 
    ],
    entryComponents: [

@@ -1,5 +1,6 @@
-<ngx-codemirror #editor
-  [options]="codeMirrorOptions"
-  [(ngModel)]="obj"
-  (ngModelChange)="onCodeChanged($event)">
-</ngx-codemirror>
+<ngs-code-editor #editor 
+  theme="vs-light" 
+  [value] = "value"
+  (valueChanged)="onCodeChanged($event)"
+  [options]="options">
+</ngs-code-editor>
