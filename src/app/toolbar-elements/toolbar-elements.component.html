@@ -1,15 +1,72 @@
 <button style="margin-left: 70px;" mat-icon-button fxShow="true" (click)="save()" >
-  <mat-icon >create_new_folder</mat-icon>
+  <mat-icon >save_alt</mat-icon>Save
 </button>
 
-<button  style="margin-left: 70px;" mat-icon-button fxShow="true" >
-  <mat-icon >create_new_folder</mat-icon>
+<button  style="margin-left: 70px;" mat-icon-button fxShow="true" (click)="open()" >
+  <mat-icon >create_new_folder</mat-icon>Open
 </button>
 
-<button style="margin-left: 70px;" mat-icon-button fxShow="true" >
-  <mat-icon >create_new_folder</mat-icon>
+<button style="margin-left: 70px;" mat-button [matMenuTriggerFor]="html">HTML Elements</button>
+
+<mat-menu #html="matMenu">
+  <button mat-menu-item [matMenuTriggerFor]="basic">Common</button>
+  <button mat-menu-item [matMenuTriggerFor]="table">Table</button>
+</mat-menu>
+
+<mat-menu #basic="matMenu">
+  <button mat-menu-item [matMenuTriggerFor]="header">Headers</button>
+  <button mat-menu-item [matMenuTriggerFor]="document">Document</button>
+  <button mat-menu-item [matMenuTriggerFor]="content">Content</button>
+  <button mat-menu-item [matMenuTriggerFor]="text">Text</button>
+  <button mat-menu-item [matMenuTriggerFor]="multimedia">MultiMedia</button>
+</mat-menu>
+
+<mat-menu #table="matMenu">
+  <div  *ngFor="let elem of TABLE">
+    <button mat-menu-item (click)="insert(elem)">{{elem}}</button>
+    </div>
+</mat-menu>
+
+<mat-menu  #header="matMenu">
+  <div  *ngFor="let elem of HEADERS">
+  <button mat-menu-item (click)="insert(elem)">{{elem}}</button>
+  </div>
+</mat-menu>
+
+<mat-menu #document="matMenu">
+  <div *ngFor="let elem of DOCUMENTS">
+
+    <button mat-menu-item (click)="insert(elem)">{{elem}}</button>
+  </div>
+</mat-menu>
+
+<mat-menu #content="matMenu">
+  <div *ngFor="let elem of CONTENT">
+    <button mat-menu-item (click)="insert(elem)">{{elem}}</button>
+  </div>
+</mat-menu>
+
+<mat-menu #text="matMenu">
+  <div *ngFor="let elem of TEXT">
+    <button mat-menu-item (click)="insert(elem)">{{elem}}</button>
+  </div>
+</mat-menu>
+
+<mat-menu #multimedia="matMenu">
+  <div *ngFor="let elem of MULTIMEDIA">
+    <button mat-menu-item (click)="insert(elem)">{{elem}}</button>
+  </div>
+</mat-menu>
+
+
+<button style="margin-left: 70px;" mat-icon-button [matMenuTriggerFor]="display">
+  <mat-icon>brush</mat-icon> Theme
+
 </button>
 
-<button style="margin-left: 70px;" mat-icon-button fxShow="true" >
-  <mat-icon >create_new_folder</mat-icon>
-</button>
+<mat-menu #display="matMenu">
+  <mat-button-toggle-group >
+    <mat-button-toggle value="Light" (click)="setTheme('vs')">Light</mat-button-toggle>
+    <mat-button-toggle value="Dark" (click)="setTheme('vs-dark')">Dark</mat-button-toggle>
+  </mat-button-toggle-group>
+</mat-menu>

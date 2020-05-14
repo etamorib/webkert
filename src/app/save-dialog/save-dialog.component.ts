@@ -9,18 +9,24 @@ import { UpdateContentService } from '../services/update-content.service';
 })
 export class SaveDialogComponent implements OnInit {
   public saveName: string;
-  value = '';
+  public value: string;
 
   constructor(public dialogRef: MatDialogRef<SaveDialogComponent>,
-              @Inject (MAT_DIALOG_DATA) public data: any, private _updateService: UpdateContentService) { }
+              @Inject (MAT_DIALOG_DATA) public data: any, private _updateService: UpdateContentService) {
+                this.value = this._updateService.currentContent;
+               }
 
   ngOnInit() {
   }
 
   save(){
-    console.log('value:', this._updateService.currentContent);
-    console.log(this.saveName);
-    this.dialogRef.close();
+    if (this.saveName && this.value){
+      localStorage.setItem(this.saveName, this.value);
+      alert('Project ' + this.saveName + ' has been saved');
+      this.dialogRef.close();
+    } else {
+      alert('Empty project or name!');
+    }
   }
 
 }

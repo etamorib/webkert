@@ -1,0 +1,26 @@
+<h2 mat-dialog-title>Open project</h2>
+<div>
+  <!--
+<mat-form-field>
+  <mat-label>Name</mat-label>
+  <input required minlength="4" matInput [(ngModel)]="saveName">
+</mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button mat-dialog-close mat-dialog-close={{value}} cdkFocusInitial (click)="save()" >Ok</button>
+  <button mat-button mat-dialog-close mat-dialog-close="cancel">Cancel</button>
+-->
+<mat-list *ngFor="let project of projects">
+  <div>
+    {{project.name}}
+
+    <button mat-icon-button mat-dialog-close (click)="openProject(project)">
+      <mat-icon>subdirectory_arrow_left</mat-icon>
+    </button>
+
+    <button mat-icon-button (click)="deleteProject(project)">
+      <mat-icon>deletet</mat-icon>
+    </button>
+  </div>
+ </mat-list>
+</div>

@@ -1,5 +1,6 @@
-<ngs-code-editor #editor 
-  theme="vs-light" 
+<ngs-code-editor id="code-editor" #editor 
+  [theme]="editorStyle" 
+  language = 'html'
   [value] = "value"
   (valueChanged)="onCodeChanged($event)"
   [options]="options">

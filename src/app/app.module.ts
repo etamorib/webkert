@@ -1,3 +1,4 @@
+import { MatMenuModule } from '@angular/material/menu';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { SafeHtmlPipe } from './pipes/safe-html.pipe';
 import { SafeUrlPipe } from './pipes/safe-url.pipe';
@@ -13,6 +14,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule  } from '@angular/material/input';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
+
 
 import { CodeEditorModule } from '@ngstack/code-editor';
 
@@ -23,6 +26,7 @@ import { ContentAreaComponent } from './content-area/content-area.component';
 import { ToolbarElementsComponent } from './toolbar-elements/toolbar-elements.component';
 import { SaveDialogComponent } from './save-dialog/save-dialog.component';
 import { FormsModule } from '@angular/forms';
+import { OpenDialogComponent } from './open-dialog/open-dialog.component';
 
 @NgModule({
    declarations: [
@@ -32,7 +36,8 @@ import { FormsModule } from '@angular/forms';
       SafeUrlPipe,
       SafeHtmlPipe,
       ToolbarElementsComponent,
-      SaveDialogComponent
+      SaveDialogComponent,
+      OpenDialogComponent
    ],
    imports: [
       BrowserModule,
@@ -48,8 +53,9 @@ import { FormsModule } from '@angular/forms';
       MatFormFieldModule,
       FormsModule,
       MatInputModule,
+      MatMenuModule,
+      MatButtonToggleModule,
       CodeEditorModule.forRoot()
-
    ],
    entryComponents: [
       SaveDialogComponent
